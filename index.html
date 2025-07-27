@@ -26,21 +26,66 @@
             color: var(--text-dark);
             line-height: 1.6;
             transition: all 0.3s ease;
+            padding-top: 70px; /* Для фиксированного хедера */
+        }
+        
+        /* Навигационное меню */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--primary-color);
+            z-index: 1000;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .nav-logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-link:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
         }
         
         .language-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
+            display: flex;
+            gap: 5px;
         }
         
         .lang-btn {
-            background-color: var(--primary-color);
+            background-color: transparent;
             color: white;
-            border: none;
-            padding: 5px 10px;
-            margin: 0 2px;
+            border: 1px solid white;
+            padding: 3px 8px;
             border-radius: 3px;
             cursor: pointer;
             font-size: 14px;
@@ -48,14 +93,36 @@
         
         .lang-btn.active {
             background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
         }
         
+        /* Мобильное меню */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: var(--primary-color);
+            padding: 15px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            z-index: 999;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .mobile-menu.show {
+            display: flex;
+        }
+        
+        /* Основной контент */
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 2rem 0;
+            padding: 4rem 0 2rem;
             text-align: center;
             position: relative;
+            margin-top: -70px; /* Компенсируем фиксированный хедер */
         }
         
         .logo-container {
@@ -146,6 +213,7 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 80px; /* Для корректного скролла с фиксированным хедером */
         }
         
         h2 {
@@ -294,6 +362,14 @@
         }
         
         @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
             .logo-container {
                 gap: 1rem;
             }
@@ -317,13 +393,38 @@
                 height: 60px;
                 margin: 0 15px;
             }
+            
+            .section {
+                scroll-margin-top: 120px; /* Больше места для мобильного меню */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="language-switcher">
-        <button class="lang-btn" onclick="changeLanguage('ru')">RU</button>
-        <button class="lang-btn" onclick="changeLanguage('he')">HE</button>
+    <!-- Фиксированное навигационное меню -->
+    <nav class="nav-header">
+        <div class="nav-logo">EDC</div>
+        <div class="nav-menu">
+            <a href="#about" class="nav-link" data-ru="О турнире" data-he="על הטורניר"></a>
+            <a href="#location" class="nav-link" data-ru="Место" data-he="מיקום"></a>
+            <a href="#date" class="nav-link" data-ru="Дата" data-he="תאריך"></a>
+            <a href="#schedule" class="nav-link" data-ru="Расписание" data-he="לוח זמנים"></a>
+            <a href="#partners" class="nav-link" data-ru="Спонсоры" data-he="ספונסרים"></a>
+        </div>
+        <button class="hamburger">☰</button>
+        <div class="language-switcher">
+            <button class="lang-btn" onclick="changeLanguage('ru')">RU</button>
+            <button class="lang-btn" onclick="changeLanguage('he')">HE</button>
+        </div>
+    </nav>
+    
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" class="nav-link" data-ru="О турнире" data-he="על הטורניר"></a>
+        <a href="#location" class="nav-link" data-ru="Место проведения" data-he="מיקום"></a>
+        <a href="#date" class="nav-link" data-ru="Дата проведения" data-he="תאריך"></a>
+        <a href="#schedule" class="nav-link" data-ru="Расписание" data-he="לוח זמנים"></a>
+        <a href="#partners" class="nav-link" data-ru="Спонсоры" data-he="ספונסרים"></a>
     </div>
     
     <header id="header">
@@ -348,7 +449,7 @@
     </header>
     
     <div class="container">
-        <section class="section">
+        <section class="section" id="about">
             <h2 data-ru="О турнире" data-he="על הטורניר"></h2>
             <p data-ru="Etude Dance Competition - это внутренний конкурс по спортивным бальным танцам, созданный для танцоров всех уровней подготовки. Турнир предоставляет возможность продемонстрировать свои навыки, получить ценный опыт выступлений и соревнований в дружеской атмосфере." 
                data-he="אתוד תחרות ריקוד הוא טורניר פנימי לריקודים סלוניים, המיועד לרקדנים בכל הרמות. התחרות מספקת הזדמנות להציג את הכישורים, לצבור ניסיון בהופעות ותחרויות באווירה ידידותית."></p>
@@ -356,7 +457,7 @@
                data-he="אנו שואפים ליצור תנאים אידיאליים עבור כל המשתתפים, שבו כל אחד יכול לבטא את עצמו וליהנות מאמנות הריקוד."></p>
         </section>
         
-        <section class="section">
+        <section class="section" id="location">
             <h2 data-ru="Место проведения" data-he="מיקום"></h2>
             <p data-ru="Турнир будет проходить в <strong>Главном зале Танцевального Клуба 'Этюд'</strong> по адресу: г. Москва, ул. Танцевальная, д. 15." 
                data-he="הטורניר יתקיים באולם הראשי של מועדון הריקוד 'אתוד' בכתובת: מוסקבה, רחוב ריקוד 15."></p>
@@ -364,13 +465,13 @@
                data-he="האולם מצויד בפרקט מקצועי, מערכת סאונד איכותית ומושבים לקהל לצפייה נוחה."></p>
         </section>
         
-        <section class="section">
+        <section class="section" id="date">
             <h2 data-ru="Дата проведения" data-he="תאריך"></h2>
             <p data-ru="Турнир состоится <strong>15 ноября 2023 года</strong>. Начало в 10:00." 
                data-he="הטורניר יתקיים ב<strong>15 בנובמבר 2023</strong>. תחילת האירוע בשעה 10:00."></p>
         </section>
         
-        <section class="section">
+        <section class="section" id="schedule">
             <h2 data-ru="Расписание" data-he="לוח זמנים"></h2>
             <p data-ru="Полное расписание турнира будет опубликовано в ближайшее время." 
                data-he="לוח הזמנים המלא של הטורניר יפורסם בקרוב."></p>
@@ -381,7 +482,7 @@
         
         <div class="thanks-section" data-ru="Спасибо за сотрудничество!" data-he="תודה על שיתוף הפעולה!"></div>
         
-        <div class="partners-section">
+        <div class="partners-section" id="partners">
             <div class="partners-title" data-ru="Наши спонсоры" data-he="הספונסרים שלנו"></div>
             <div class="partners-marquee">
                 <div class="partners-track">
@@ -467,6 +568,18 @@
                 return 'ru';
             }
         }
+        
+        // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.remove('show');
+            });
+        });
         
         // Initialize language on page load
         window.onload = function() {
