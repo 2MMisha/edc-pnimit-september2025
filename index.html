@@ -66,17 +66,17 @@
             flex-wrap: wrap;
         }
         
-        .logo-placeholder {
-            width: 120px;
+        .logo-img {
             height: 120px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            flex-shrink: 0;
+            object-fit: contain;
+        }
+        
+        .logo-club {
+            width: 120px;
+        }
+        
+        .logo-competition {
+            width: 120px;
         }
         
         .logo-idsf {
@@ -217,9 +217,12 @@
                 gap: 0.5rem;
             }
             
-            .logo-placeholder {
-                width: 100px;
+            .logo-img {
                 height: 100px;
+            }
+            
+            .logo-club, .logo-competition {
+                width: 100px;
             }
             
             .logo-idsf {
@@ -241,9 +244,9 @@
     
     <header id="header">
         <div class="logo-container">
-            <div class="logo-placeholder" data-ru="Лого конкурса" data-he="לוגו תחרות"></div>
-            <div class="logo-placeholder" data-ru="Лого клуба" data-he="לוגו מועדון"></div>
-            <div class="logo-placeholder logo-idsf" data-ru="Лого IDSF" data-he="לוגו IDSF"></div>
+            <img src="edc.png" alt="Etude Dance Competition" class="logo-img logo-competition">
+            <img src="etude.png" alt="Etude Dance Club" class="logo-img logo-club">
+            <img src="idsf.png" alt="IDSF" class="logo-img logo-idsf">
         </div>
         <h1 data-ru="Etude Dance Competition" data-he="אתוד תחרות ריקוד"></h1>
         <p class="subtitle" data-ru="Внутренний турнир по спортивным бальным танцам" data-he="טורניר פנימי לריקודים סלוניים"></p>
