@@ -11,6 +11,7 @@
             --secondary-color: #959fae;
             --text-dark: #77777f;
             --text-light: #868688;
+            --logo-bg: #ffffff;
         }
         
         * {
@@ -66,21 +67,33 @@
             flex-wrap: wrap;
         }
         
+        .logo-wrapper {
+            background-color: var(--logo-bg);
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
         .logo-img {
-            height: 120px;
             object-fit: contain;
         }
         
         .logo-club {
             width: 120px;
+            height: 100px;
         }
         
         .logo-competition {
-            width: 120px;
+            width: 180px;
+            height: 140px;
+            order: 1; /* Центральное положение */
         }
         
         .logo-idsf {
-            width: 180px;
+            width: 160px;
             height: 80px;
         }
         
@@ -148,6 +161,11 @@
             font-size: 1.8rem;
         }
         
+        strong {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
         .schedule-placeholder {
             background-color: var(--bg-color);
             padding: 2rem;
@@ -169,6 +187,77 @@
             width: 120px;
             height: auto;
             margin-bottom: 1rem;
+        }
+        
+        .partners-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .partners-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .partners-marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .partners-marquee:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-color), transparent);
+            content: "";
+            z-index: 2;
+        }
+        
+        .partners-marquee:after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(to left, var(--primary-color), transparent);
+            content: "";
+            z-index: 2;
+        }
+        
+        .partners-track {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll 20s linear infinite;
+        }
+        
+        .partner-logo {
+            display: inline-block;
+            margin: 0 30px;
+            vertical-align: middle;
+            background-color: var(--logo-bg);
+            padding: 10px;
+            border-radius: 5px;
+            width: 120px;
+            height: 60px;
+        }
+        
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        
+        .thanks-section {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
         }
         
         footer {
@@ -215,23 +304,33 @@
         @media (max-width: 768px) {
             .logo-container {
                 gap: 0.5rem;
+                flex-direction: column;
             }
             
-            .logo-img {
-                height: 100px;
+            .logo-competition {
+                order: 0;
+                width: 160px;
+                height: 120px;
             }
             
-            .logo-club, .logo-competition {
+            .logo-club {
                 width: 100px;
+                height: 80px;
             }
             
             .logo-idsf {
-                width: 150px;
+                width: 140px;
                 height: 60px;
             }
             
             h1 {
                 font-size: 2rem;
+            }
+            
+            .partner-logo {
+                width: 100px;
+                height: 50px;
+                margin: 0 15px;
             }
         }
     </style>
@@ -244,9 +343,15 @@
     
     <header id="header">
         <div class="logo-container">
-            <img src="edc.png" alt="Etude Dance Competition" class="logo-img logo-competition">
-            <img src="etude.png" alt="Etude Dance Club" class="logo-img logo-club">
-            <img src="idsf.png" alt="IDSF" class="logo-img logo-idsf">
+            <div class="logo-wrapper">
+                <img src="etude.png" alt="Etude Dance Club" class="logo-img logo-club">
+            </div>
+            <div class="logo-wrapper">
+                <img src="edc.png" alt="Etude Dance Competition" class="logo-img logo-competition">
+            </div>
+            <div class="logo-wrapper">
+                <img src="idsf.png" alt="IDSF" class="logo-img logo-idsf">
+            </div>
         </div>
         <h1 data-ru="Etude Dance Competition" data-he="אתוד תחרות ריקוד"></h1>
         <p class="subtitle" data-ru="Внутренний турнир по спортивным бальным танцам" data-he="טורניר פנימי לריקודים סלוניים"></p>
@@ -288,6 +393,29 @@
                 <p data-ru="Расписание появится здесь скоро" data-he="לוח הזמנים יופיע כאן בקרוב"></p>
             </div>
         </section>
+        
+        <div class="thanks-section" data-ru="Спасибо за сотрудничество!" data-he="תודה על שיתוף הפעולה!"></div>
+        
+        <div class="partners-section">
+            <div class="partners-title" data-ru="Наши партнеры" data-he="השותפים שלנו"></div>
+            <div class="partners-marquee">
+                <div class="partners-track">
+                    <img src="etude.png" class="partner-logo" alt="Partner 1">
+                    <img src="edc.png" class="partner-logo" alt="Partner 2">
+                    <img src="idsf.png" class="partner-logo" alt="Partner 3">
+                    <img src="etude.png" class="partner-logo" alt="Partner 4">
+                    <img src="edc.png" class="partner-logo" alt="Partner 5">
+                    <img src="idsf.png" class="partner-logo" alt="Partner 6">
+                    <!-- Duplicate for seamless looping -->
+                    <img src="etude.png" class="partner-logo" alt="Partner 1">
+                    <img src="edc.png" class="partner-logo" alt="Partner 2">
+                    <img src="idsf.png" class="partner-logo" alt="Partner 3">
+                    <img src="etude.png" class="partner-logo" alt="Partner 4">
+                    <img src="edc.png" class="partner-logo" alt="Partner 5">
+                    <img src="idsf.png" class="partner-logo" alt="Partner 6">
+                </div>
+            </div>
+        </div>
         
         <div class="rising-star">
             <p data-ru="Конкурс создан под менеджментом команды" data-he="התחרות נוצרה תחת ניהול הצוות"></p>
