@@ -1,2 +1,366 @@
-<h1>Stil nothing here...</h1>
-<a href="https://www.ristar.co">RISING STAR WEBSITE</a>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etude Dance Competition | אתוד תחרות ריקוד</title>
+    <style>
+        :root {
+            --bg-color: #e6e6e7;
+            --primary-color: #28518e;
+            --secondary-color: #959fae;
+            --text-dark: #77777f;
+            --text-light: #868688;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        .lang-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 0 2px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .lang-btn.active {
+            background-color: var(--secondary-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .logo-idsf {
+            width: 180px;
+            height: 80px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--text-light);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--text-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .schedule-placeholder {
+            background-color: var(--bg-color);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .rising-star {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .rising-star a {
+            display: inline-block;
+        }
+        
+        .rising-star-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            width: 100px;
+            height: auto;
+            margin: 1rem 0;
+        }
+        
+        .footer-btn {
+            background-color: var(--primary-color);
+            margin-top: 1rem;
+        }
+        
+        .footer-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* RTL styles for Hebrew */
+        html[dir="rtl"] {
+            direction: rtl;
+        }
+        
+        html[dir="rtl"] .language-switcher {
+            right: auto;
+            left: 20px;
+        }
+        
+        html[dir="rtl"] .button-container {
+            flex-direction: row-reverse;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-container {
+                gap: 0.5rem;
+            }
+            
+            .logo-placeholder {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .logo-idsf {
+                width: 150px;
+                height: 60px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="lang-btn" onclick="changeLanguage('ru')">RU</button>
+        <button class="lang-btn" onclick="changeLanguage('he')">HE</button>
+    </div>
+    
+    <header id="header">
+        <div class="logo-container">
+            <div class="logo-placeholder" data-ru="Лого конкурса" data-he="לוגו תחרות"></div>
+            <div class="logo-placeholder" data-ru="Лого клуба" data-he="לוגו מועדון"></div>
+            <div class="logo-placeholder logo-idsf" data-ru="Лого IDSF" data-he="לוגו IDSF"></div>
+        </div>
+        <h1 data-ru="Etude Dance Competition" data-he="אתוד תחרות ריקוד"></h1>
+        <p class="subtitle" data-ru="Внутренний турнир по спортивным бальным танцам" data-he="טורניר פנימי לריקודים סלוניים"></p>
+        
+        <div class="button-container">
+            <a href="https://registration.ristar.co/edc-test/index.html" class="btn" data-ru="Регистрация" data-he="הרשמה"></a>
+            <a href="https://results.ristar.co/edc-test/index.html" class="btn btn-secondary" data-ru="Результаты" data-he="תוצאות"></a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section">
+            <h2 data-ru="О турнире" data-he="על הטורניר"></h2>
+            <p data-ru="Etude Dance Competition - это внутренний конкурс по спортивным бальным танцам, созданный для танцоров всех уровней подготовки. Турнир предоставляет возможность продемонстрировать свои навыки, получить ценный опыт выступлений и соревнований в дружеской атмосфере." 
+               data-he="אתוד תחרות ריקוד הוא טורניר פנימי לריקודים סלוניים, המיועד לרקדנים בכל הרמות. התחרות מספקת הזדמנות להציג את הכישורים, לצבור ניסיון בהופעות ותחרויות באווירה ידידותית."></p>
+            <p data-ru="Мы стремимся создать идеальные условия для всех участников, где каждый сможет проявить себя и насладиться искусством танца." 
+               data-he="אנו שואפים ליצור תנאים אידיאליים עבור כל המשתתפים, שבו כל אחד יכול לבטא את עצמו וליהנות מאמנות הריקוד."></p>
+        </section>
+        
+        <section class="section">
+            <h2 data-ru="Место проведения" data-he="מיקום"></h2>
+            <p data-ru="Турнир будет проходить в <strong>Главном зале Танцевального Клуба 'Этюд'</strong> по адресу: г. Москва, ул. Танцевальная, д. 15." 
+               data-he="הטורניר יתקיים באולם הראשי של מועדון הריקוד 'אתוד' בכתובת: מוסקבה, רחוב ריקוד 15."></p>
+            <p data-ru="Зал оборудован профессиональным паркетом, качественной звуковой системой и зрительскими местами для комфортного просмотра." 
+               data-he="האולם מצויד בפרקט מקצועי, מערכת סאונד איכותית ומושבים לקהל לצפייה נוחה."></p>
+        </section>
+        
+        <section class="section">
+            <h2 data-ru="Дата проведения" data-he="תאריך"></h2>
+            <p data-ru="Турнир состоится <strong>15 ноября 2023 года</strong>. Начало в 10:00." 
+               data-he="הטורניר יתקיים ב<strong>15 בנובמבר 2023</strong>. תחילת האירוע בשעה 10:00."></p>
+        </section>
+        
+        <section class="section">
+            <h2 data-ru="Расписание" data-he="לוח זמנים"></h2>
+            <p data-ru="Полное расписание турнира будет опубликовано в ближайшее время." 
+               data-he="לוח הזמנים המלא של הטורניר יפורסם בקרוב."></p>
+            <div class="schedule-placeholder">
+                <p data-ru="Расписание появится здесь скоро" data-he="לוח הזמנים יופיע כאן בקרוב"></p>
+            </div>
+        </section>
+        
+        <div class="rising-star">
+            <p data-ru="Конкурс создан под менеджментом команды" data-he="התחרות נוצרה תחת ניהול הצוות"></p>
+            <a href="https://www.ristar.co" target="_blank">
+                <img src="rising-star-logo.png" alt="Rising Star Manager" class="rising-star-logo">
+            </a>
+            <p>Rising Star Manager</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <h3 data-ru="Хотите провести конкурс удобно и без хлопот?" data-he="רוצה לארגן תחרות בנוחות וללא טרחה?"></h3>
+            <p data-ru="Обращайтесь к нам!" data-he="פנה אלינו!"></p>
+            <a href="https://www.ristar.co" target="_blank">
+                <img src="rising-star-logo.png" alt="Rising Star Manager" class="footer-logo">
+            </a>
+            <br>
+            <a href="https://www.ristar.co/contact.html" class="btn footer-btn" data-ru="Связаться с нами" data-he="יצירת קשר"></a>
+        </div>
+    </footer>
+
+    <script>
+        // Function to change language
+        function changeLanguage(lang) {
+            // Set html dir attribute for RTL languages
+            if (lang === 'he') {
+                document.documentElement.dir = 'rtl';
+                document.documentElement.lang = 'he';
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.documentElement.lang = 'ru';
+            }
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-ru], [data-he]').forEach(element => {
+                if (element.dataset[lang]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = element.dataset[lang];
+                    } else {
+                        element.textContent = element.dataset[lang];
+                    }
+                }
+            });
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Save preference to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Detect browser language and set initial language
+        function detectLanguage() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const browserLang = navigator.language || navigator.userLanguage;
+            
+            if (savedLang) {
+                return savedLang;
+            } else if (browserLang.startsWith('he')) {
+                return 'he';
+            } else {
+                return 'ru';
+            }
+        }
+        
+        // Initialize language on page load
+        window.onload = function() {
+            const lang = detectLanguage();
+            const btn = lang === 'he' ? document.querySelector('.lang-btn[onclick*="he"]') : 
+                                         document.querySelector('.lang-btn[onclick*="ru"]');
+            btn.click();
+        };
+    </script>
+</body>
+</html>
