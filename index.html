@@ -201,21 +201,42 @@
             position: relative;
         }
         
+        .partners-marquee:before,
+        .partners-marquee:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .partners-marquee:before {
+            left: 0;
+            background: linear-gradient(to right, var(--primary-color), rgba(40, 81, 142, 0));
+        }
+        
+        .partners-marquee:after {
+            right: 0;
+            background: linear-gradient(to left, var(--primary-color), rgba(40, 81, 142, 0));
+        }
+        
         .partners-track {
             display: inline-block;
             white-space: nowrap;
-            animation: scroll 20s linear infinite;
+            animation: scroll 25s linear infinite;
         }
         
         .partner-logo {
             display: inline-block;
-            margin: 0 30px;
+            margin: 0 20px;
             vertical-align: middle;
             background-color: var(--logo-bg);
             padding: 10px;
             border-radius: 5px;
             width: 120px;
             height: 80px;
+            object-fit: contain;
         }
         
         @keyframes scroll {
@@ -294,7 +315,7 @@
             .partner-logo {
                 width: 100px;
                 height: 60px;
-                margin: 0 20px;
+                margin: 0 15px;
             }
         }
     </style>
@@ -361,22 +382,20 @@
         <div class="thanks-section" data-ru="Спасибо за сотрудничество!" data-he="תודה על שיתוף הפעולה!"></div>
         
         <div class="partners-section">
-            <div class="partners-title" data-ru="Наши партнеры" data-he="השותפים שלנו"></div>
+            <div class="partners-title" data-ru="Наши спонсоры" data-he="הספונסרים שלנו"></div>
             <div class="partners-marquee">
                 <div class="partners-track">
-                    <img src="etude.png" class="partner-logo" alt="Partner">
-                    <img src="edc.png" class="partner-logo" alt="Partner">
-                    <img src="idsf.png" class="partner-logo" alt="Partner">
-                    <img src="etude.png" class="partner-logo" alt="Partner">
-                    <img src="edc.png" class="partner-logo" alt="Partner">
-                    <img src="idsf.png" class="partner-logo" alt="Partner">
+                    <img src="2m.png" class="partner-logo" alt="2M">
+                    <img src="salmon.png" class="partner-logo" alt="Salmon">
+                    <img src="rishon.png" class="partner-logo" alt="Rishon">
+                    <img src="mercaz.png" class="partner-logo" alt="Mercaz">
+                    <img src="hevra.png" class="partner-logo" alt="Hevra">
                     <!-- Duplicate for seamless looping -->
-                    <img src="etude.png" class="partner-logo" alt="Partner">
-                    <img src="edc.png" class="partner-logo" alt="Partner">
-                    <img src="idsf.png" class="partner-logo" alt="Partner">
-                    <img src="etude.png" class="partner-logo" alt="Partner">
-                    <img src="edc.png" class="partner-logo" alt="Partner">
-                    <img src="idsf.png" class="partner-logo" alt="Partner">
+                    <img src="2m.png" class="partner-logo" alt="2M">
+                    <img src="salmon.png" class="partner-logo" alt="Salmon">
+                    <img src="rishon.png" class="partner-logo" alt="Rishon">
+                    <img src="mercaz.png" class="partner-logo" alt="Mercaz">
+                    <img src="hevra.png" class="partner-logo" alt="Hevra">
                 </div>
             </div>
         </div>
