@@ -62,7 +62,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
@@ -74,27 +74,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 140px;
+            height: 140px;
+        }
+        
+        .logo-main {
+            width: 160px;
+            height: 160px;
         }
         
         .logo-img {
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
-        }
-        
-        .logo-club {
-            width: 120px;
-            height: 100px;
-        }
-        
-        .logo-competition {
-            width: 180px;
-            height: 140px;
-            order: 1; /* Центральное положение */
-        }
-        
-        .logo-idsf {
-            width: 160px;
-            height: 80px;
         }
         
         h1 {
@@ -208,28 +201,6 @@
             position: relative;
         }
         
-        .partners-marquee:before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100px;
-            height: 100%;
-            background: linear-gradient(to right, var(--primary-color), transparent);
-            content: "";
-            z-index: 2;
-        }
-        
-        .partners-marquee:after {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100%;
-            background: linear-gradient(to left, var(--primary-color), transparent);
-            content: "";
-            z-index: 2;
-        }
-        
         .partners-track {
             display: inline-block;
             white-space: nowrap;
@@ -244,7 +215,7 @@
             padding: 10px;
             border-radius: 5px;
             width: 120px;
-            height: 60px;
+            height: 80px;
         }
         
         @keyframes scroll {
@@ -303,24 +274,17 @@
         
         @media (max-width: 768px) {
             .logo-container {
-                gap: 0.5rem;
-                flex-direction: column;
+                gap: 1rem;
             }
             
-            .logo-competition {
-                order: 0;
-                width: 160px;
+            .logo-wrapper {
+                width: 120px;
                 height: 120px;
             }
             
-            .logo-club {
-                width: 100px;
-                height: 80px;
-            }
-            
-            .logo-idsf {
+            .logo-main {
                 width: 140px;
-                height: 60px;
+                height: 140px;
             }
             
             h1 {
@@ -329,8 +293,8 @@
             
             .partner-logo {
                 width: 100px;
-                height: 50px;
-                margin: 0 15px;
+                height: 60px;
+                margin: 0 20px;
             }
         }
     </style>
@@ -344,13 +308,13 @@
     <header id="header">
         <div class="logo-container">
             <div class="logo-wrapper">
-                <img src="etude.png" alt="Etude Dance Club" class="logo-img logo-club">
+                <img src="etude.png" alt="Etude Dance Club" class="logo-img">
+            </div>
+            <div class="logo-wrapper logo-main">
+                <img src="edc.png" alt="Etude Dance Competition" class="logo-img">
             </div>
             <div class="logo-wrapper">
-                <img src="edc.png" alt="Etude Dance Competition" class="logo-img logo-competition">
-            </div>
-            <div class="logo-wrapper">
-                <img src="idsf.png" alt="IDSF" class="logo-img logo-idsf">
+                <img src="idsf.png" alt="IDSF" class="logo-img">
             </div>
         </div>
         <h1 data-ru="Etude Dance Competition" data-he="אתוד תחרות ריקוד"></h1>
@@ -400,19 +364,19 @@
             <div class="partners-title" data-ru="Наши партнеры" data-he="השותפים שלנו"></div>
             <div class="partners-marquee">
                 <div class="partners-track">
-                    <img src="etude.png" class="partner-logo" alt="Partner 1">
-                    <img src="edc.png" class="partner-logo" alt="Partner 2">
-                    <img src="idsf.png" class="partner-logo" alt="Partner 3">
-                    <img src="etude.png" class="partner-logo" alt="Partner 4">
-                    <img src="edc.png" class="partner-logo" alt="Partner 5">
-                    <img src="idsf.png" class="partner-logo" alt="Partner 6">
+                    <img src="etude.png" class="partner-logo" alt="Partner">
+                    <img src="edc.png" class="partner-logo" alt="Partner">
+                    <img src="idsf.png" class="partner-logo" alt="Partner">
+                    <img src="etude.png" class="partner-logo" alt="Partner">
+                    <img src="edc.png" class="partner-logo" alt="Partner">
+                    <img src="idsf.png" class="partner-logo" alt="Partner">
                     <!-- Duplicate for seamless looping -->
-                    <img src="etude.png" class="partner-logo" alt="Partner 1">
-                    <img src="edc.png" class="partner-logo" alt="Partner 2">
-                    <img src="idsf.png" class="partner-logo" alt="Partner 3">
-                    <img src="etude.png" class="partner-logo" alt="Partner 4">
-                    <img src="edc.png" class="partner-logo" alt="Partner 5">
-                    <img src="idsf.png" class="partner-logo" alt="Partner 6">
+                    <img src="etude.png" class="partner-logo" alt="Partner">
+                    <img src="edc.png" class="partner-logo" alt="Partner">
+                    <img src="idsf.png" class="partner-logo" alt="Partner">
+                    <img src="etude.png" class="partner-logo" alt="Partner">
+                    <img src="edc.png" class="partner-logo" alt="Partner">
+                    <img src="idsf.png" class="partner-logo" alt="Partner">
                 </div>
             </div>
         </div>
